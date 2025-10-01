@@ -1,7 +1,6 @@
-<<<<<<< HEAD
 # FlowIQ
 Messing around with Loveable.dev and other AI Tools to create a B2B SaaS targetting user analysis.
-=======
+
 # Exit Point Guru 🚀
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)  
@@ -220,4 +219,3 @@ This project is licensed under the **MIT License**. See [LICENSE](LICENSE) for d
 - Open-source libraries used in this project  
 - Inspiration from trading analysis frameworks  
 - All contributors and testers
->>>>>>> exit-point-guru/main
