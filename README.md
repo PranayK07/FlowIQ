@@ -1,13 +1,13 @@
 <<<<<<< HEAD
 # FlowIQ
-Messing around with Loveable.dev and other AI Tools to create a B2B SaaS targetting user analysis.
+Messing around with Loveable.dev and other AI Tools to create a B2B SaaS targeting user analysis.
 =======
 # Exit Point Guru 🚀
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)  
 [![Python Version](https://img.shields.io/badge/python-3.8%2B-blue.svg)]()
 
-**Exit Point Guru** is a Python-based tool designed to help determine optimal exit points (such as in trading or strategy evaluation). It provides analytics, visualizations, and decision support to assist users in making informed exit decisions.
+**Exit Point Guru** is a Python-based tool designed to help determine optimal exit points (such as in trading or strategy evaluation). It provides analytics, visualizations, and decision support to help users make informed exit decisions.
 
 ---
 
@@ -30,7 +30,7 @@ Messing around with Loveable.dev and other AI Tools to create a B2B SaaS targett
 
 ## ✨ Features
 
-- Compute candidate exit points using multiple algorithms / heuristics  
+- Compute candidate exit points using multiple algorithms/heuristics  
 - Visualize price/metric charts with annotated exit signals  
 - Backtest exit strategies on historical data  
 - Alerts, thresholds, or auto‑exit triggers  
@@ -53,7 +53,7 @@ Why this project exists:
 ## 🏗 Architecture / Design
 
 ```
-exit-point-guru/
+FlowIQ/
 ├── src/
 │   ├── core/
 │   │   ├── exit_algorithms.py
@@ -92,8 +92,8 @@ exit-point-guru/
 
 ```bash
 # Clone the repository
-git clone https://github.com/PranayK07/exit-point-guru.git
-cd exit-point-guru
+git clone https://github.com/PranayK07/FlowIQ.git
+cd FlowIQ
 
 # (Optional) create & activate virtual env
 python3 -m venv venv
@@ -162,7 +162,7 @@ python examples/sample_run.py
 
 ## 🛠 Configuration
 
-You can configure via CLI, environment variables, or config file. Example `config.yaml`:
+You can configure it via the CLI, environment variables, or a configuration file. Example `config.yaml`:
 
 ```yaml
 algorithm: "trend"
@@ -220,4 +220,4 @@ This project is licensed under the **MIT License**. See [LICENSE](LICENSE) for d
 - Open-source libraries used in this project  
 - Inspiration from trading analysis frameworks  
 - All contributors and testers
->>>>>>> exit-point-guru/main
+>>>>>>> FlowIQ/main
