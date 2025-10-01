@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Check, TrendingUp, Users, Zap, BarChart3, AlertCircle, Download } from "lucide-react";
 import { Link } from "react-router-dom";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 const Index = () => {
   const features = [
@@ -97,6 +98,7 @@ const Index = () => {
               <Button className="bg-gradient-to-r from-primary to-accent hover:opacity-90">
                 Start Free Trial
               </Button>
+              <ThemeToggle />
             </div>
           </div>
         </div>
@@ -215,6 +217,57 @@ const Index = () => {
                 </CardContent>
               </Card>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works Section */}
+      <section className="py-20 bg-secondary/30">
+        <div className="container mx-auto px-6">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                How FlowIQ Works
+              </h2>
+              <p className="text-xl text-muted-foreground">
+                From data to insights in three simple steps
+              </p>
+            </div>
+            <div className="space-y-12">
+              <div className="flex gap-6 items-start">
+                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-primary-foreground font-bold text-xl">
+                  1
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold mb-3">Connect Your Data Source</h3>
+                  <p className="text-muted-foreground text-lg">
+                    Install our lightweight JavaScript snippet on your website or connect directly to Google Analytics, Mixpanel, or your existing analytics platform. FlowIQ automatically starts collecting user behavior data—page views, clicks, form interactions, and navigation patterns—without impacting site performance.
+                  </p>
+                </div>
+              </div>
+              <div className="flex gap-6 items-start">
+                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-primary-foreground font-bold text-xl">
+                  2
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold mb-3">Visualize User Journeys</h3>
+                  <p className="text-muted-foreground text-lg">
+                    Our intelligent dashboard transforms raw event data into beautiful, interactive flow diagrams. See exactly how users navigate through your site: which pages they visit first, where they spend time, and crucially, where they abandon their journey. Color-coded paths highlight high-traffic routes and drop-off danger zones at a glance.
+                  </p>
+                </div>
+              </div>
+              <div className="flex gap-6 items-start">
+                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-primary-foreground font-bold text-xl">
+                  3
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold mb-3">Act on Friction Insights</h3>
+                  <p className="text-muted-foreground text-lg">
+                    FlowIQ automatically detects friction points—slow page loads, form errors, broken links, or confusing navigation patterns—and flags them with actionable recommendations. Export detailed reports showing specific pages with high exit rates, conversion funnel analysis, and suggested improvements. Share findings with your team via CSV or PDF exports, or integrate insights directly into your workflow with webhooks and API access.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
