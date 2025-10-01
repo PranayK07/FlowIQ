@@ -1,73 +1,218 @@
-# Welcome to your Lovable project
+# Exit Point Guru 🚀
 
-## Project info
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)  
+[![Python Version](https://img.shields.io/badge/python-3.8%2B-blue.svg)]()
 
-**URL**: https://lovable.dev/projects/cd48a152-3e08-40f6-bba5-bb10ca17ee24
+**Exit Point Guru** is a Python-based tool designed to help determine optimal exit points (such as in trading or strategy evaluation). It provides analytics, visualizations, and decision support to assist users in making informed exit decisions.
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+## 📑 Table of Contents
 
-**Use Lovable**
+- [Features](#-features)  
+- [Motivation](#-motivation)  
+- [Architecture / Design](#-architecture--design)  
+- [Installation](#-installation)  
+- [Usage](#-usage)  
+- [Examples](#-examples)  
+- [Configuration](#-configuration)  
+- [Testing](#-testing)  
+- [Contributing](#-contributing)  
+- [Roadmap / Future Work](#-roadmap--future-work)  
+- [License](#-license)  
+- [Acknowledgements](#-acknowledgements)  
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/cd48a152-3e08-40f6-bba5-bb10ca17ee24) and start prompting.
+---
 
-Changes made via Lovable will be committed automatically to this repo.
+## ✨ Features
 
-**Use your preferred IDE**
+- Compute candidate exit points using multiple algorithms / heuristics  
+- Visualize price/metric charts with annotated exit signals  
+- Backtest exit strategies on historical data  
+- Alerts, thresholds, or auto‑exit triggers  
+- Support for different data sources (CSV, API, live feeds)  
+- Logging, metrics, and debugging capabilities  
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+---
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## 💡 Motivation
 
-Follow these steps:
+Why this project exists:
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+- No unified, beginner-friendly tool for evaluating exit strategies  
+- Provides a flexible and extensible framework for experimenting with heuristics  
+- Reduces emotional bias in exit decision-making  
+- Encourages learning and experimentation with models  
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+---
 
-# Step 3: Install the necessary dependencies.
-npm i
+## 🏗 Architecture / Design
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+```
+exit-point-guru/
+├── src/
+│   ├── core/
+│   │   ├── exit_algorithms.py
+│   │   ├── analyzers.py
+│   │   └── utils.py
+│   ├── data/
+│   │   ├── loader.py
+│   │   └── connectors.py
+│   ├── visualization/
+│   │   └── plotter.py
+│   └── main.py
+├── tests/
+│   └── test_algorithms.py
+├── examples/
+│   └── sample_run.py
+├── requirements.txt
+└── README.md
 ```
 
-**Edit a file directly in GitHub**
+- **core/**: Main logic for exit determination, analytics, etc.  
+- **data/**: Modules for loading data (CSV, APIs, etc.)  
+- **visualization/**: Plotting and charting tools  
+- **tests/**: Unit tests  
+- **examples/**: Demonstration scripts  
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+---
 
-**Use GitHub Codespaces**
+## ⚙️ Installation
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### Prerequisites
 
-## What technologies are used for this project?
+- Python 3.8+  
+- (Optional) Virtual environment tool (`venv` or `conda`)
 
-This project is built with:
+### Steps
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+```bash
+# Clone the repository
+git clone https://github.com/PranayK07/exit-point-guru.git
+cd exit-point-guru
 
-## How can I deploy this project?
+# (Optional) create & activate virtual env
+python3 -m venv venv
+source venv/bin/activate     # macOS/Linux
+venv\Scripts\activate      # Windows
 
-Simply open [Lovable](https://lovable.dev/projects/cd48a152-3e08-40f6-bba5-bb10ca17ee24) and click on Share -> Publish.
+# Install dependencies
+pip install -r requirements.txt
+```
 
-## Can I connect a custom domain to my Lovable project?
+---
 
-Yes, you can!
+## ▶️ Usage
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+```bash
+# Basic run
+python src/main.py --input data/sample_prices.csv --output results/output.png
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+# Example run
+python examples/sample_run.py
+```
+
+Or import into your own Python scripts:
+
+```python
+from src.core.exit_algorithms import compute_exit_points
+from src.data.loader import load_csv_data
+
+data = load_csv_data("data/sample.csv")
+exits = compute_exit_points(data)
+```
+
+### Command Line Options
+
+| Argument         | Description                                  | Default         |
+|------------------|----------------------------------------------|-----------------|
+| `--input`        | Input data file path (e.g. CSV)              | Required        |
+| `--output`       | Path to store output/plots                   | `./output.png`  |
+| `--algorithm`    | Exit algorithm to use (e.g. “rsi”, “trend”)  | “rsi”           |
+| `--threshold`    | Numeric threshold parameter                  | 0.05            |
+| `--verbose`      | Enable verbose logging                       | `False`         |
+
+---
+
+## 📊 Examples
+
+Example usage in Python:
+
+```python
+from src.data.loader import load_csv_data
+from src.core.exit_algorithms import compute_exit_points
+from src.visualization.plotter import plot_with_exits
+
+data = load_csv_data("data/historical_prices.csv")
+exit_signals = compute_exit_points(data, algorithm="trend", threshold=0.03)
+plot_with_exits(data, exit_signals, output_path="charts/exits.png")
+```
+
+Run:
+
+```bash
+python examples/sample_run.py
+```
+
+---
+
+## 🛠 Configuration
+
+You can configure via CLI, environment variables, or config file. Example `config.yaml`:
+
+```yaml
+algorithm: "trend"
+threshold: 0.04
+input_path: "data/input.csv"
+output_path: "output/exits.png"
+logging:
+  level: "INFO"
+  file: "logs/run.log"
+```
+
+---
+
+## ✅ Testing
+
+Run tests with:
+
+```bash
+pytest
+```
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome!
+
+1. Fork this repo  
+2. Create a feature branch (`git checkout -b feature/my-feature`)  
+3. Commit changes with clear messages  
+4. Run tests to ensure stability  
+5. Open a Pull Request  
+
+---
+
+## 🚀 Roadmap / Future Work
+
+- More exit strategies and heuristics  
+- Real-time exit detection  
+- Trading API integrations  
+- Richer visualization (dashboards, heatmaps)  
+- GUI or web dashboard  
+- Performance optimizations  
+
+---
+
+## 📜 License
+
+This project is licensed under the **MIT License**. See [LICENSE](LICENSE) for details.
+
+---
+
+## 🙏 Acknowledgements
+
+- Open-source libraries used in this project  
+- Inspiration from trading analysis frameworks  
+- All contributors and testers
