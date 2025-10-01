@@ -90,7 +90,9 @@ const Index = () => {
               FlowIQ
             </div>
             <div className="flex items-center gap-4">
-              <Button variant="ghost">Features</Button>
+              <Link to="/features">
+                <Button variant="ghost">Features</Button>
+              </Link>
               <Button variant="ghost">Pricing</Button>
               <Link to="/dashboard">
                 <Button variant="outline">View Demo</Button>
@@ -304,7 +306,7 @@ const Index = () => {
             <div>
               <h3 className="font-semibold mb-4">Product</h3>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><a href="#" className="hover:text-foreground">Features</a></li>
+                <li><Link to="/features" className="hover:text-foreground">Features</Link></li>
                 <li><a href="#" className="hover:text-foreground">Pricing</a></li>
                 <li><a href="#" className="hover:text-foreground">Integrations</a></li>
               </ul>
