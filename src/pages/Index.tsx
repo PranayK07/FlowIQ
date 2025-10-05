@@ -80,6 +80,9 @@ const Index = () => {
     },
   ];
 
+  // Extract shared button style for reuse
+  const secondaryButtonClass = "border border-input bg-background hover:bg-accent/10";
+
   return (
     <div className="min-h-screen bg-background">
       {/* Navigation */}
@@ -91,11 +94,11 @@ const Index = () => {
             </div>
             <div className="flex items-center gap-4">
               <Link to="/features">
-                <Button variant="ghost">Features</Button>
+                <Button>Features</Button>
               </Link>
-              <Button variant="ghost">Pricing</Button>
+              <Button>Pricing</Button>
               <Link to="/dashboard">
-                <Button variant="outline">View Demo</Button>
+                <Button>View Demo</Button>
               </Link>
               <Button className="bg-gradient-to-r from-primary to-accent hover:opacity-90">
                 Start Free Trial
@@ -126,11 +129,11 @@ const Index = () => {
               and reveals friction—so you can optimize conversions and boost revenue.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-gradient-to-r from-primary to-accent hover:opacity-90 text-lg px-8">
+              <Button className="bg-gradient-to-r from-primary to-accent hover:opacity-90 text-lg px-8">
                 Start Free Trial
               </Button>
               <Link to="/dashboard">
-                <Button size="lg" variant="outline" className="text-lg px-8">
+                <Button className={`text-lg px-8 ${secondaryButtonClass}`}>
                   View Live Demo
                 </Button>
               </Link>
@@ -211,9 +214,8 @@ const Index = () => {
                     ))}
                   </ul>
                   <Button 
-                    className={`w-full ${tier.popular ? 'bg-gradient-to-r from-primary to-accent hover:opacity-90' : ''}`}
-                    variant={tier.popular ? 'default' : 'outline'}
-                  >
+                    className={`w-full ${tier.popular ? 'bg-gradient-to-r from-primary to-accent hover:opacity-90' : secondaryButtonClass}`}
+                    >
                     Get Started
                   </Button>
                 </CardContent>
@@ -281,10 +283,7 @@ const Index = () => {
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary-foreground">
               Ready to Stop Losing Customers?
             </h2>
-            <p className="text-xl mb-8 text-primary-foreground/90">
-              Join hundreds of businesses using FlowIQ to understand their users and boost conversions.
-            </p>
-            <Button size="lg" variant="secondary" className="text-lg px-8">
+            <Button className="bg-secondary text-lg px-8">
               Start Your Free Trial
             </Button>
           </div>
