@@ -1,9 +1,11 @@
 # FlowIQ 🚀
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)  
-[![Python Version](https://img.shields.io/badge/python-3.8%2B-blue.svg)]()
+[![React](https://img.shields.io/badge/React-18.x-blue.svg)]()
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue.svg)]()
+[![Live Demo](https://img.shields.io/badge/demo-live-success.svg)](https://pranayk07.github.io/FlowIQ/)
 
-**Exit Point Guru** is a Python-based tool designed to help determine optimal exit points (such as in trading or strategy evaluation). It provides analytics, visualizations, and decision support to help users make informed exit decisions.
+**FlowIQ** is a web-based tool designed to help determine optimal exit points in trading strategies. It provides advanced algorithms, interactive visualizations, comprehensive backtesting, and decision support to help traders make informed exit decisions.
 
 ---
 
@@ -51,29 +53,26 @@ Why this project exists:
 ```
 FlowIQ/
 ├── src/
-│   ├── core/
-│   │   ├── exit_algorithms.py
-│   │   ├── analyzers.py
-│   │   └── utils.py
-│   ├── data/
-│   │   ├── loader.py
-│   │   └── connectors.py
-│   ├── visualization/
-│   │   └── plotter.py
-│   └── main.py
-├── tests/
-│   └── test_algorithms.py
-├── examples/
-│   └── sample_run.py
-├── requirements.txt
-└── README.md
+│   ├── pages/
+│   │   ├── TradingIndex.tsx      # Landing page
+│   │   ├── TradingDashboard.tsx  # Main trading dashboard
+│   │   └── Features.tsx          # Features page
+│   ├── utils/
+│   │   ├── exitAlgorithms.ts     # Exit point algorithms (RSI, MA, Trend, Bollinger)
+│   │   ├── backtesting.ts        # Backtesting engine
+│   │   └── dataLoader.ts         # CSV parsing and data generation
+│   ├── types/
+│   │   └── trading.ts            # TypeScript type definitions
+│   └── components/
+│       └── ui/                   # Reusable UI components
+├── public/                       # Static assets
+└── dist/                         # Production build
 ```
 
-- **core/**: Main logic for exit determination, analytics, etc.  
-- **data/**: Modules for loading data (CSV, APIs, etc.)  
-- **visualization/**: Plotting and charting tools  
-- **tests/**: Unit tests  
-- **examples/**: Demonstration scripts  
+- **pages/**: Main application pages and routes
+- **utils/**: Core logic for exit algorithms, backtesting, and data processing
+- **types/**: TypeScript interfaces and type definitions
+- **components/**: Reusable UI components built with React and shadcn/ui  
 
 ---
 
@@ -81,8 +80,8 @@ FlowIQ/
 
 ### Prerequisites
 
-- Python 3.8+  
-- (Optional) Virtual environment tool (`venv` or `conda`)
+- Node.js 18+
+- npm or yarn
 
 ### Steps
 
@@ -91,13 +90,14 @@ FlowIQ/
 git clone https://github.com/PranayK07/FlowIQ.git
 cd FlowIQ
 
-# (Optional) create & activate virtual env
-python3 -m venv venv
-source venv/bin/activate     # macOS/Linux
-venv\Scripts\activate      # Windows
-
 # Install dependencies
-pip install -r requirements.txt
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
 ```
 
 ---
@@ -136,48 +136,49 @@ exits = compute_exit_points(data)
 
 ## 📊 Examples
 
-Example usage in Python:
+### Web Interface
 
-```python
-from src.data.loader import load_csv_data
-from src.core.exit_algorithms import compute_exit_points
-from src.visualization.plotter import plot_with_exits
+1. Visit [https://pranayk07.github.io/FlowIQ/](https://pranayk07.github.io/FlowIQ/)
+2. Click "Launch App" to access the Trading Dashboard
+3. Select an algorithm (e.g., RSI, Moving Average)
+4. Use the sample data or upload your own CSV file
+5. View the interactive chart with exit signals
+6. Check the backtest results tab for performance metrics
 
-data = load_csv_data("data/historical_prices.csv")
-exit_signals = compute_exit_points(data, algorithm="trend", threshold=0.03)
-plot_with_exits(data, exit_signals, output_path="charts/exits.png")
-```
+### Sample CSV Format
 
-Run:
-
-```bash
-python examples/sample_run.py
+```csv
+date,open,high,low,close,volume
+2024-01-01,100.00,102.50,99.50,101.25,1000000
+2024-01-02,101.25,103.00,100.75,102.50,1200000
+2024-01-03,102.50,104.00,102.00,103.75,950000
 ```
 
 ---
 
 ## 🛠 Configuration
 
-You can configure it via the CLI, environment variables, or a configuration file. Example `config.yaml`:
+The application can be configured through the web interface:
 
-```yaml
-algorithm: "trend"
-threshold: 0.04
-input_path: "data/input.csv"
-output_path: "output/exits.png"
-logging:
-  level: "INFO"
-  file: "logs/run.log"
-```
+- **Algorithm Selection**: Choose from RSI, Moving Average, Trend Analysis, or Bollinger Bands
+- **Parameters**: Adjust thresholds and periods for each algorithm
+- **Data Source**: Upload CSV files or use generated sample data
+- **Export Options**: Download exit signals and backtest results
 
 ---
 
 ## ✅ Testing
 
-Run tests with:
+Run linting and type checks:
 
 ```bash
-pytest
+npm run lint
+```
+
+Build the application:
+
+```bash
+npm run build
 ```
 
 ---
