@@ -3,9 +3,10 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import TradingIndex from "./pages/TradingIndex";
+import Index from "./pages/Index";
 import Dashboard from "./pages/Dashboard";
 import TradingDashboard from "./pages/TradingDashboard";
+import TradingIndex from "./pages/TradingIndex";
 import Features from "./pages/Features";
 import NotFound from "./pages/NotFound";
 
@@ -18,9 +19,10 @@ const App = () => (
       <Sonner />
       <BrowserRouter basename={import.meta.env.BASE_URL}>
         <Routes>
-          <Route path="/" element={<TradingIndex />} />
+          <Route path="/" element={<Index />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/trading" element={<TradingDashboard />} />
+          <Route path="/trading-info" element={<TradingIndex />} />
           <Route path="/features" element={<Features />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
