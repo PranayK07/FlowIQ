@@ -18,6 +18,9 @@ FlowIQ is configured to automatically deploy to GitHub Pages when code is pushed
 
 3. **Access Your Site**:
    - Once deployed, your site will be available at: `https://pranayk07.github.io/FlowIQ/`
+   - **Important**: Make sure to include the trailing slash `/` after `FlowIQ/` when accessing the site
+   - The site may take a few minutes to deploy after pushing to `main`
+   - Check the Actions tab in GitHub to monitor deployment progress
 
 ### Local Development
 
@@ -39,16 +42,22 @@ npm run preview
 
 The application is configured for GitHub Pages deployment:
 - Base path is set to `/FlowIQ/` in production (see `vite.config.ts`)
+- BrowserRouter uses `basename` prop to handle the subpath correctly (see `src/App.tsx`)
 - Static assets are served from the `dist` directory
 - `.nojekyll` file prevents Jekyll processing
+- `404.html` file enables client-side routing on GitHub Pages by redirecting to index.html
 
 ### Troubleshooting
 
 **Issue**: Assets not loading after deployment
 - **Solution**: Ensure `base` is correctly set in `vite.config.ts`
 
-**Issue**: 404 errors on routes
-- **Solution**: GitHub Pages doesn't support client-side routing by default. The app uses hash-based routing handled by React Router.
+**Issue**: 404 errors on routes or blank white screen
+- **Solution**: The app uses a 404.html fallback strategy for client-side routing with React Router. The BrowserRouter is configured with the correct basename to handle the `/FlowIQ/` subpath. If you still see a blank screen:
+  - Clear your browser cache and try again
+  - Ensure you're accessing `https://pranayk07.github.io/FlowIQ/` (with trailing slash)
+  - Wait for the deployment to complete (check GitHub Actions tab)
+  - Try accessing in an incognito/private window
 
 **Issue**: Build fails in GitHub Actions
 - **Solution**: Check the Actions tab for error logs. Common issues include:
