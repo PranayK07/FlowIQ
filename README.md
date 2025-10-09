@@ -18,6 +18,7 @@
 - [Usage](#-usage)  
 - [Examples](#-examples)  
 - [Configuration](#-configuration)  
+- [API Reference](#-api-reference)  
 - [Testing](#-testing)  
 - [Contributing](#-contributing)  
 - [Roadmap / Future Work](#-roadmap--future-work)  
@@ -101,27 +102,43 @@ npm run build
 
 ## ▶️ Usage
 
-### Getting Started
+### Quick Start
 
-1. **Visit the live demo** at [https://pranayk07.github.io/FlowIQ/](https://pranayk07.github.io/FlowIQ/)
+1. **View the Live Demo**: Visit [https://pranayk07.github.io/FlowIQ/](https://pranayk07.github.io/FlowIQ/)
+2. **Explore the Dashboard**: See real analytics data with 15,000+ simulated user sessions
+3. **Read the Integration Guide**: Check [INTEGRATION.md](INTEGRATION.md) for complete setup instructions
 
-2. **View the Analytics Dashboard** to see sample user behavior data
+### Integrate with Your Website (5 minutes)
 
-3. **Explore Features** to understand how FlowIQ helps track user drop-offs
+Add this snippet to your website's `<head>` section:
 
-4. **Integrate with your site** using a simple JavaScript snippet:
 ```html
-<script src="https://flowiq.io/track.js" data-site-id="your-site-id"></script>
+<!-- FlowIQ Analytics -->
+<script>
+(function(w,d,s,l,i){
+  w[l]=w[l]||[];w[l].push({'flowiq.start':new Date().getTime(),event:'flowiq.js'});
+  var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+  j.async=true;j.src='https://pranayk07.github.io/FlowIQ/flowiq-track.js?id='+i+dl;
+  f.parentNode.insertBefore(j,f);
+})(window,document,'script','flowiqDataLayer','YOUR-SITE-ID');
+</script>
 ```
 
-### Integration Options
+**That's it!** FlowIQ now automatically tracks:
+- ✅ Page views and user sessions
+- ✅ Click events and form interactions  
+- ✅ Scroll depth and time on page
+- ✅ Exit points and drop-offs
+- ✅ Device and traffic source information
 
-FlowIQ can be integrated with:
-- Direct JavaScript snippet for real-time tracking
-- Google Analytics
-- Mixpanel
-- Segment
-- Custom API integration
+### Platform-Specific Integration
+
+- **React/Next.js**: Use the `useFlowIQ` hook (see [INTEGRATION.md](INTEGRATION.md))
+- **WordPress**: Add via theme header or Insert Headers plugin
+- **Shopify**: Add to theme.liquid file
+- **Webflow**: Add to Project Settings > Custom Code
+
+See [INTEGRATION.md](INTEGRATION.md) for detailed platform guides.
 
 ---
 
@@ -160,6 +177,38 @@ FlowIQ provides an intuitive dashboard interface:
 
 ---
 
+## 📚 API Reference
+
+Complete API documentation is available in [API.md](API.md)
+
+### Quick Reference
+
+**Client-Side Tracking:**
+```javascript
+// Track page view
+flowiq('pageview', { path: '/page', title: 'Page Title' });
+
+// Track event
+flowiq('event', 'button_click', { button: 'signup' });
+
+// Identify user
+flowiq('identify', { userId: 'user_123', email: 'user@example.com' });
+```
+
+**Analytics Service:**
+```typescript
+import { getAnalyticsDashboard } from '@/services/analyticsService';
+
+const data = getAnalyticsDashboard('my-site-id');
+console.log(data.metrics.totalUsers);
+console.log(data.userFlow);
+console.log(data.dropOffPages);
+```
+
+See [API.md](API.md) for complete documentation.
+
+---
+
 ## ✅ Testing
 
 Run linting and type checks:
@@ -172,6 +221,12 @@ Build the application:
 
 ```bash
 npm run build
+```
+
+Test the analytics service:
+```bash
+npm run dev
+# Visit http://localhost:8080/dashboard to see live analytics
 ```
 
 ---
