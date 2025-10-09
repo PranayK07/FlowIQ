@@ -2,53 +2,68 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { ArrowUpRight, ArrowDownRight, Users, MousePointerClick, TrendingUp, AlertTriangle } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { getAnalyticsDashboard } from "@/services/analyticsService";
+import type { AnalyticsDashboardData } from "@/types/analytics";
 
 const Dashboard = () => {
+  const [analyticsData, setAnalyticsData] = useState<AnalyticsDashboardData | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Load analytics data
+    try {
+      const data = getAnalyticsDashboard('demo');
+      setAnalyticsData(data);
+    } catch (error) {
+      console.error('Failed to load analytics:', error);
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+
+  if (loading || !analyticsData) {
+    return <div className="min-h-screen bg-background flex items-center justify-center">Loading analytics...</div>;
+  }
+
+  const { metrics: siteMetrics, userFlow, dropOffPages, frictionInsights } = analyticsData;
+
   const metrics = [
     {
       title: "Total Users",
-      value: "12,459",
-      change: "+12.5%",
-      trend: "up",
+      value: siteMetrics.totalUsers.toLocaleString(),
+      change: `${siteMetrics.trend.totalUsers > 0 ? '+' : ''}${siteMetrics.trend.totalUsers}%`,
+      trend: siteMetrics.trend.totalUsers > 0 ? "up" : "down",
       icon: Users,
     },
     {
       title: "Conversion Rate",
-      value: "3.24%",
-      change: "+0.8%",
-      trend: "up",
+      value: `${siteMetrics.conversionRate.toFixed(2)}%`,
+      change: `${siteMetrics.trend.conversionRate > 0 ? '+' : ''}${siteMetrics.trend.conversionRate}%`,
+      trend: siteMetrics.trend.conversionRate > 0 ? "up" : "down",
       icon: TrendingUp,
     },
     {
       title: "Drop-off Rate",
-      value: "45.2%",
-      change: "-5.3%",
-      trend: "down",
+      value: `${siteMetrics.dropOffRate.toFixed(1)}%`,
+      change: `${siteMetrics.trend.dropOffRate}%`,
+      trend: siteMetrics.trend.dropOffRate < 0 ? "down" : "up",
       icon: AlertTriangle,
     },
     {
       title: "Click Through",
-      value: "68.9%",
-      change: "+3.2%",
-      trend: "up",
+      value: `${siteMetrics.clickThroughRate.toFixed(1)}%`,
+      change: `${siteMetrics.trend.clickThroughRate > 0 ? '+' : ''}${siteMetrics.trend.clickThroughRate}%`,
+      trend: siteMetrics.trend.clickThroughRate > 0 ? "up" : "down",
       icon: MousePointerClick,
     },
   ];
 
-  const topDropOffPages = [
-    { page: "/checkout", rate: 62.3, users: 3421 },
-    { page: "/signup", rate: 54.8, users: 2876 },
-    { page: "/pricing", rate: 48.2, users: 2104 },
-    { page: "/product-details", rate: 42.1, users: 1893 },
-  ];
-
-  const userFlow = [
-    { from: "Landing Page", to: "Product Page", users: 8234, dropOff: 18 },
-    { from: "Product Page", to: "Pricing", users: 6752, dropOff: 24 },
-    { from: "Pricing", to: "Signup", users: 5132, dropOff: 32 },
-    { from: "Signup", to: "Checkout", users: 3489, dropOff: 45 },
-    { from: "Checkout", to: "Success", users: 1315, dropOff: 62 },
-  ];
+  const topDropOffPages = dropOffPages.map(page => ({
+    page: page.page,
+    rate: page.rate,
+    users: page.users
+  }));
 
   return (
     <div className="min-h-screen bg-background">
@@ -181,27 +196,15 @@ const Dashboard = () => {
             </CardHeader>
             <CardContent>
               <div className="space-y-3">
-                <div className="flex items-start gap-3 p-3 rounded-lg bg-warning/10 border border-warning/20">
-                  <AlertTriangle className="h-5 w-5 text-warning mt-0.5" />
-                  <div>
-                    <p className="font-medium text-sm">Slow checkout page load</p>
-                    <p className="text-xs text-muted-foreground">Avg. 4.2s load time causing 23% abandonment</p>
+                {frictionInsights.map((insight, index) => (
+                  <div key={index} className="flex items-start gap-3 p-3 rounded-lg bg-warning/10 border border-warning/20">
+                    <AlertTriangle className="h-5 w-5 text-warning mt-0.5" />
+                    <div>
+                      <p className="font-medium text-sm">{insight.description}</p>
+                      <p className="text-xs text-muted-foreground">{insight.recommendation}</p>
+                    </div>
                   </div>
-                </div>
-                <div className="flex items-start gap-3 p-3 rounded-lg bg-warning/10 border border-warning/20">
-                  <AlertTriangle className="h-5 w-5 text-warning mt-0.5" />
-                  <div>
-                    <p className="font-medium text-sm">Form validation errors</p>
-                    <p className="text-xs text-muted-foreground">18% of users encounter errors on signup form</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3 p-3 rounded-lg bg-warning/10 border border-warning/20">
-                  <AlertTriangle className="h-5 w-5 text-warning mt-0.5" />
-                  <div>
-                    <p className="font-medium text-sm">Mobile navigation issues</p>
-                    <p className="text-xs text-muted-foreground">Mobile users 2x more likely to exit pricing page</p>
-                  </div>
-                </div>
+                ))}
               </div>
             </CardContent>
           </Card>
