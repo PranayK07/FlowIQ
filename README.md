@@ -5,7 +5,7 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue.svg)]()
 [![Live Demo](https://img.shields.io/badge/demo-live-success.svg)](https://pranayk07.github.io/FlowIQ/)
 
-**FlowIQ** is a web-based tool designed to help determine optimal exit points in trading strategies. It provides advanced algorithms, interactive visualizations, comprehensive backtesting, and decision support to help traders make informed exit decisions.
+**FlowIQ** empowers businesses to understand and optimize their online performance through advanced analytics and user behavior insights. With real-time data tracking, heatmaps, and intuitive dashboards, companies can easily see how visitors navigate their site—pinpointing exactly where and why users drop off.
 
 ---
 
@@ -22,18 +22,18 @@
 - [Contributing](#-contributing)  
 - [Roadmap / Future Work](#-roadmap--future-work)  
 - [License](#-license)  
-- [Acknowledgements](#-acknowledgements)  
+- [Acknowledgements](#-acknowledgements)
 
 ---
 
 ## ✨ Features
 
-- Compute candidate exit points using multiple algorithms/heuristics  
-- Visualize price/metric charts with annotated exit signals  
-- Backtest exit strategies on historical data  
-- Alerts, thresholds, or auto‑exit triggers  
-- Support for different data sources (CSV, API, live feeds)  
-- Logging, metrics, and debugging capabilities  
+- **Visual User Flows**: Interactive journey maps showing exactly how users navigate your site
+- **Drop-off Detection**: Automatically identify pages with high exit rates and friction points
+- **Behavior Analytics**: Track patterns, conversion funnels, and user engagement metrics
+- **Friction Insights**: Spot technical issues like slow loads or form errors impacting UX
+- **Export Reports**: Download comprehensive CSV/PDF reports for your team
+- **Easy Integration**: Simple JavaScript snippet or direct analytics platform integration
 
 ---
 
@@ -41,10 +41,11 @@
 
 Why this project exists:
 
-- No unified, beginner-friendly tool for evaluating exit strategies  
-- Provides a flexible and extensible framework for experimenting with heuristics  
-- Reduces emotional bias in exit decision-making  
-- Encourages learning and experimentation with models  
+- Businesses struggle to understand why users abandon their websites
+- Provides actionable insights into user behavior and drop-off patterns
+- Transforms complex data into visual, easy-to-understand analytics
+- Helps companies optimize conversions and improve user experience
+- Reduces guesswork in website optimization decisions
 
 ---
 
@@ -54,25 +55,21 @@ Why this project exists:
 FlowIQ/
 ├── src/
 │   ├── pages/
-│   │   ├── TradingIndex.tsx      # Landing page
-│   │   ├── TradingDashboard.tsx  # Main trading dashboard
-│   │   └── Features.tsx          # Features page
-│   ├── utils/
-│   │   ├── exitAlgorithms.ts     # Exit point algorithms (RSI, MA, Trend, Bollinger)
-│   │   ├── backtesting.ts        # Backtesting engine
-│   │   └── dataLoader.ts         # CSV parsing and data generation
-│   ├── types/
-│   │   └── trading.ts            # TypeScript type definitions
-│   └── components/
-│       └── ui/                   # Reusable UI components
+│   │   ├── Index.tsx             # Landing page
+│   │   ├── Dashboard.tsx         # Analytics dashboard
+│   │   ├── Features.tsx          # Features page
+│   │   └── TradingDashboard.tsx  # Optional trading tools
+│   ├── components/
+│   │   └── ui/                   # Reusable UI components
+│   └── types/                    # TypeScript type definitions
 ├── public/                       # Static assets
 └── dist/                         # Production build
 ```
 
-- **pages/**: Main application pages and routes
-- **utils/**: Core logic for exit algorithms, backtesting, and data processing
-- **types/**: TypeScript interfaces and type definitions
+- **pages/**: Main application pages including landing, dashboard, and features
 - **components/**: Reusable UI components built with React and shadcn/ui  
+- **types/**: TypeScript interfaces and type definitions
+- Built with React 18, TypeScript, Tailwind CSS, and shadcn/ui
 
 ---
 
@@ -104,33 +101,27 @@ npm run build
 
 ## ▶️ Usage
 
-```bash
-# Basic run
-python src/main.py --input data/sample_prices.csv --output results/output.png
+### Getting Started
 
-# Example run
-python examples/sample_run.py
+1. **Visit the live demo** at [https://pranayk07.github.io/FlowIQ/](https://pranayk07.github.io/FlowIQ/)
+
+2. **View the Analytics Dashboard** to see sample user behavior data
+
+3. **Explore Features** to understand how FlowIQ helps track user drop-offs
+
+4. **Integrate with your site** using a simple JavaScript snippet:
+```html
+<script src="https://flowiq.io/track.js" data-site-id="your-site-id"></script>
 ```
 
-Or import into your own Python scripts:
+### Integration Options
 
-```python
-from src.core.exit_algorithms import compute_exit_points
-from src.data.loader import load_csv_data
-
-data = load_csv_data("data/sample.csv")
-exits = compute_exit_points(data)
-```
-
-### Command Line Options
-
-| Argument         | Description                                  | Default         |
-|------------------|----------------------------------------------|-----------------|
-| `--input`        | Input data file path (e.g. CSV)              | Required        |
-| `--output`       | Path to store output/plots                   | `./output.png`  |
-| `--algorithm`    | Exit algorithm to use (e.g. “rsi”, “trend”)  | “rsi”           |
-| `--threshold`    | Numeric threshold parameter                  | 0.05            |
-| `--verbose`      | Enable verbose logging                       | `False`         |
+FlowIQ can be integrated with:
+- Direct JavaScript snippet for real-time tracking
+- Google Analytics
+- Mixpanel
+- Segment
+- Custom API integration
 
 ---
 
@@ -139,31 +130,33 @@ exits = compute_exit_points(data)
 ### Web Interface
 
 1. Visit [https://pranayk07.github.io/FlowIQ/](https://pranayk07.github.io/FlowIQ/)
-2. Click "Launch App" to access the Trading Dashboard
-3. Select an algorithm (e.g., RSI, Moving Average)
-4. Use the sample data or upload your own CSV file
-5. View the interactive chart with exit signals
-6. Check the backtest results tab for performance metrics
+2. Click "View Demo" to access the Analytics Dashboard
+3. Explore the user flow visualization showing where visitors navigate
+4. Review drop-off rates at different pages
+5. Check conversion funnel analysis
+6. Export reports as needed
 
-### Sample CSV Format
+### Key Metrics Tracked
 
-```csv
-date,open,high,low,close,volume
-2024-01-01,100.00,102.50,99.50,101.25,1000000
-2024-01-02,101.25,103.00,100.75,102.50,1200000
-2024-01-03,102.50,104.00,102.00,103.75,950000
-```
+- **Total Users**: Track visitor count and trends
+- **Conversion Rate**: Monitor how many users complete desired actions
+- **Drop-off Rate**: Identify pages where users leave
+- **Click Through Rate**: Measure engagement with CTAs
+- **User Flow Paths**: Visualize navigation patterns
+- **Friction Points**: Detect UX issues and bottlenecks
 
 ---
 
 ## 🛠 Configuration
 
-The application can be configured through the web interface:
+FlowIQ provides an intuitive dashboard interface:
 
-- **Algorithm Selection**: Choose from RSI, Moving Average, Trend Analysis, or Bollinger Bands
-- **Parameters**: Adjust thresholds and periods for each algorithm
-- **Data Source**: Upload CSV files or use generated sample data
-- **Export Options**: Download exit signals and backtest results
+- **Real-time Analytics**: View live user behavior data
+- **Custom Time Ranges**: Analyze data by hour, day, week, or month
+- **Segmentation**: Group users by behavior, demographics, or custom attributes
+- **Alert Configuration**: Set up notifications for high drop-off rates
+- **Export Options**: Download reports in CSV or PDF format
+- **Team Collaboration**: Share insights with stakeholders
 
 ---
 
@@ -197,12 +190,14 @@ Contributions are welcome!
 
 ## 🚀 Roadmap / Future Work
 
-- More exit strategies and heuristics  
-- Real-time exit detection  
-- Trading API integrations  
-- Richer visualization (dashboards, heatmaps)  
-- GUI or web dashboard  
-- Performance optimizations  
+- Real-time user behavior tracking
+- Advanced heatmap visualizations
+- A/B testing integration
+- Session replay functionality
+- Machine learning-powered insights
+- Mobile app analytics
+- Enhanced API capabilities
+- Enterprise SSO integration
 
 ---
 
@@ -214,6 +209,6 @@ This project is licensed under the **MIT License**. See [LICENSE](LICENSE) for d
 
 ## 🙏 Acknowledgements
 
-- Open-source libraries used in this project  
-- Inspiration from trading analysis frameworks  
+- Open-source libraries: React, TypeScript, Tailwind CSS, shadcn/ui
+- Analytics platform inspiration from industry leaders
 - All contributors and testers
