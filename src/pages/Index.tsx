@@ -89,7 +89,7 @@ const Index = () => {
       <nav className="border-b bg-card/50 backdrop-blur-sm sticky top-0 z-50">
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <div className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+            <div className="text-2xl font-bold text-primary">
               FlowIQ
             </div>
             <div className="flex items-center gap-4">
@@ -100,7 +100,7 @@ const Index = () => {
               <Link to="/dashboard">
                 <Button>View Demo</Button>
               </Link>
-              <Button className="bg-gradient-to-r from-primary to-accent hover:opacity-90">
+              <Button className="bg-primary hover:bg-primary/90">
                 Start Free Trial
               </Button>
               <ThemeToggle />
@@ -111,7 +111,7 @@ const Index = () => {
 
       {/* Hero Section */}
       <section className="relative py-24 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-accent/5 to-background" />
+        <div className="absolute inset-0 bg-secondary/30" />
         <div className="container mx-auto px-6 relative">
           <div className="max-w-4xl mx-auto text-center">
             <div className="inline-block mb-4 px-4 py-2 rounded-full bg-accent/10 border border-accent/20">
@@ -120,7 +120,7 @@ const Index = () => {
             <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
               Understand Every Step
               <br />
-              <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+              <span className="text-primary">
                 Of Your User Journey
               </span>
             </h1>
@@ -130,7 +130,7 @@ const Index = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/live-analytics">
-                <Button className="bg-gradient-to-r from-primary to-accent hover:opacity-90 text-lg px-8">
+                <Button className="bg-primary hover:bg-primary/90 text-lg px-8">
                   Try It Live
                 </Button>
               </Link>
@@ -162,7 +162,7 @@ const Index = () => {
             {features.map((feature) => (
               <Card key={feature.title} className="hover:shadow-lg transition-all hover:-translate-y-1">
                 <CardHeader>
-                  <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center mb-4">
+                  <div className="w-12 h-12 rounded-lg bg-primary flex items-center justify-center mb-4">
                     <feature.icon className="h-6 w-6 text-primary-foreground" />
                   </div>
                   <CardTitle>{feature.title}</CardTitle>
@@ -193,7 +193,7 @@ const Index = () => {
               >
                 {tier.popular && (
                   <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                    <span className="bg-gradient-to-r from-primary to-accent text-primary-foreground px-4 py-1 rounded-full text-sm font-medium">
+                    <span className="bg-primary text-primary-foreground px-4 py-1 rounded-full text-sm font-medium">
                       Most Popular
                     </span>
                   </div>
@@ -216,7 +216,7 @@ const Index = () => {
                     ))}
                   </ul>
                   <Button 
-                    className={`w-full ${tier.popular ? 'bg-gradient-to-r from-primary to-accent hover:opacity-90' : secondaryButtonClass}`}
+                    className={`w-full ${tier.popular ? 'bg-primary hover:bg-primary/90' : secondaryButtonClass}`}
                     >
                     Get Started
                   </Button>
@@ -241,7 +241,7 @@ const Index = () => {
             </div>
             <div className="space-y-12">
               <div className="flex gap-6 items-start">
-                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-primary-foreground font-bold text-xl">
+                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-bold text-xl">
                   1
                 </div>
                 <div>
@@ -252,7 +252,7 @@ const Index = () => {
                 </div>
               </div>
               <div className="flex gap-6 items-start">
-                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-primary-foreground font-bold text-xl">
+                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-bold text-xl">
                   2
                 </div>
                 <div>
@@ -263,7 +263,7 @@ const Index = () => {
                 </div>
               </div>
               <div className="flex gap-6 items-start">
-                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-primary-foreground font-bold text-xl">
+                <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-bold text-xl">
                   3
                 </div>
                 <div>
@@ -279,7 +279,7 @@ const Index = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-primary to-accent">
+      <section className="py-20 bg-primary">
         <div className="container mx-auto px-6">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary-foreground">
@@ -297,7 +297,7 @@ const Index = () => {
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
-              <div className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-4">
+              <div className="text-2xl font-bold text-primary mb-4">
                 FlowIQ
               </div>
               <p className="text-sm text-muted-foreground">

@@ -71,7 +71,7 @@ const Dashboard = () => {
       <nav className="border-b bg-card">
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <Link to="/" className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+            <Link to="/" className="text-2xl font-bold text-primary">
               FlowIQ
             </Link>
             <div className="flex items-center gap-4">
@@ -141,7 +141,7 @@ const Dashboard = () => {
                         </div>
                         <div className="h-2 bg-secondary rounded-full overflow-hidden">
                           <div 
-                            className="h-full bg-gradient-to-r from-primary to-accent transition-all"
+                            className="h-full bg-primary transition-all"
                             style={{ width: `${100 - flow.dropOff}%` }}
                           />
                         </div>

@@ -46,7 +46,7 @@ const LiveAnalytics = () => {
         <nav className="border-b bg-card">
           <div className="container mx-auto px-6 py-4">
             <div className="flex items-center justify-between">
-              <Link to="/" className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+              <Link to="/" className="text-2xl font-bold text-primary">
                 FlowIQ
               </Link>
               <div className="flex items-center gap-4">
@@ -68,7 +68,7 @@ const LiveAnalytics = () => {
               <Zap className="h-4 w-4" />
               <span className="text-sm font-medium">Live Website Analysis</span>
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
               Analyze Any Website Instantly
             </h1>
             <p className="text-xl text-muted-foreground mb-8">
@@ -203,7 +203,7 @@ const LiveAnalytics = () => {
       <nav className="border-b bg-card">
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <Link to="/" className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+            <Link to="/" className="text-2xl font-bold text-primary">
               FlowIQ
             </Link>
             <div className="flex items-center gap-4">
@@ -426,7 +426,7 @@ const LiveAnalytics = () => {
                         </div>
                         <div className="h-2 bg-secondary rounded-full overflow-hidden">
                           <div 
-                            className="h-full bg-gradient-to-r from-primary to-accent transition-all"
+                            className="h-full bg-primary transition-all"
                             style={{ width: `${100 - flow.dropOff}%` }}
                           />
                         </div>

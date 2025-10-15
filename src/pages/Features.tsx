@@ -181,7 +181,7 @@ const Features = () => {
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <Link to="/">
-              <div className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+              <div className="text-2xl font-bold text-primary">
                 FlowIQ
               </div>
             </Link>
@@ -193,7 +193,7 @@ const Features = () => {
               <Link to="/dashboard">
                 <Button variant="outline">View Demo</Button>
               </Link>
-              <Button className="bg-gradient-to-r from-primary to-accent hover:opacity-90">
+              <Button className="bg-primary hover:bg-primary/90">
                 Start Free Trial
               </Button>
               <ThemeToggle />
@@ -204,7 +204,7 @@ const Features = () => {
 
       {/* Hero Section */}
       <section className="relative py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-accent/5 to-background" />
+        <div className="absolute inset-0 bg-secondary/30" />
         <div className="container mx-auto px-6 relative">
           <div className="max-w-4xl mx-auto text-center">
             <Badge className="mb-4 bg-accent/10 text-accent border-accent/20">
@@ -213,7 +213,7 @@ const Features = () => {
             <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
               Every Tool You Need to
               <br />
-              <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+              <span className="text-primary">
                 Understand User Behavior
               </span>
             </h1>
@@ -239,7 +239,7 @@ const Features = () => {
             {coreFeatures.map((feature) => (
               <Card key={feature.title} className="hover:shadow-lg transition-all">
                 <CardHeader>
-                  <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center mb-4">
+                  <div className="w-12 h-12 rounded-lg bg-primary flex items-center justify-center mb-4">
                     <feature.icon className="h-6 w-6 text-primary-foreground" />
                   </div>
                   <CardTitle className="text-2xl">{feature.title}</CardTitle>
@@ -276,7 +276,7 @@ const Features = () => {
             {technicalFeatures.map((feature) => (
               <Card key={feature.title} className="text-center hover:shadow-lg transition-all">
                 <CardHeader>
-                  <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center mb-4 mx-auto">
+                  <div className="w-12 h-12 rounded-lg bg-primary flex items-center justify-center mb-4 mx-auto">
                     <feature.icon className="h-6 w-6 text-primary-foreground" />
                   </div>
                   <CardTitle className="text-lg">{feature.title}</CardTitle>
@@ -303,7 +303,7 @@ const Features = () => {
             {useCases.map((useCase) => (
               <Card key={useCase.industry} className="hover:shadow-lg transition-all">
                 <CardHeader>
-                  <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center mb-4">
+                  <div className="w-12 h-12 rounded-lg bg-primary flex items-center justify-center mb-4">
                     <useCase.icon className="h-6 w-6 text-primary-foreground" />
                   </div>
                   <CardTitle className="text-2xl">{useCase.industry}</CardTitle>
@@ -357,7 +357,7 @@ const Features = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-primary to-accent">
+      <section className="py-20 bg-primary">
         <div className="container mx-auto px-6">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-primary-foreground">
@@ -385,7 +385,7 @@ const Features = () => {
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
-              <div className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-4">
+              <div className="text-2xl font-bold text-primary mb-4">
                 FlowIQ
               </div>
               <p className="text-sm text-muted-foreground">
