@@ -129,12 +129,14 @@ const Index = () => {
               and reveals friction—so you can optimize conversions and boost revenue.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button className="bg-gradient-to-r from-primary to-accent hover:opacity-90 text-lg px-8">
-                Start Free Trial
-              </Button>
+              <Link to="/live-analytics">
+                <Button className="bg-gradient-to-r from-primary to-accent hover:opacity-90 text-lg px-8">
+                  Try It Live
+                </Button>
+              </Link>
               <Link to="/dashboard">
                 <Button className={`text-lg px-8 ${secondaryButtonClass}`}>
-                  View Live Demo
+                  View Demo Dashboard
                 </Button>
               </Link>
             </div>
