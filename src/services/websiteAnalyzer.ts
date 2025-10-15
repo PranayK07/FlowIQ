@@ -1,4 +1,12 @@
 // Website Analyzer Service - Analyzes live websites for analytics insights
+// 
+// NOTE: This service attempts to fetch and analyze real websites using actual HTTP requests.
+// However, due to browser CORS (Cross-Origin Resource Sharing) policies, direct fetching 
+// of external websites will often fail. In production, this should be implemented as a 
+// backend service that can bypass CORS restrictions.
+// 
+// When CORS blocks the request, the service gracefully falls back to providing estimated
+// analytics based on common website patterns.
 import {
   AnalyticsDashboardData,
   SiteMetrics,
