@@ -22,6 +22,7 @@
 - [Testing](#-testing)  
 - [Contributing](#-contributing)  
 - [Roadmap / Future Work](#-roadmap--future-work)  
+- [Backend Requirements](#-backend-requirements)
 - [License](#-license)  
 - [Acknowledgements](#-acknowledgements)
 
@@ -245,14 +246,36 @@ Contributions are welcome!
 
 ## 🚀 Roadmap / Future Work
 
-- Real-time user behavior tracking
+For a comprehensive list of backend features needed to make FlowIQ production-ready, see [BACKEND_FEATURES.md](BACKEND_FEATURES.md).
+
+**High-level roadmap:**
+- Real-time user behavior tracking with persistent backend
 - Advanced heatmap visualizations
 - A/B testing integration
 - Session replay functionality
 - Machine learning-powered insights
 - Mobile app analytics
-- Enhanced API capabilities
+- Enhanced API capabilities with RESTful backend
 - Enterprise SSO integration
+- Multi-tenancy and team collaboration
+
+---
+
+## 📋 Backend Requirements
+
+FlowIQ currently runs as a client-side demo with in-memory storage. To transform it into a fully functional, production-ready analytics platform, a comprehensive backend infrastructure is required.
+
+**See [BACKEND_FEATURES.md](BACKEND_FEATURES.md) for the complete list of:**
+- Database schema and storage requirements
+- RESTful API endpoints (60+ endpoints)
+- Real-time data ingestion pipeline
+- Authentication & authorization system
+- Multi-tenancy support
+- Caching and message queue infrastructure
+- Security, monitoring, and compliance features
+- Deployment and DevOps requirements
+
+The backend implementation is estimated at 12 months with a team of 5-6 engineers, broken down into 5 phases from core functionality to enterprise features.
 
 ---
 
